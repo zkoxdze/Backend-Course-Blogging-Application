@@ -2,12 +2,12 @@ package com.codewithdurgesh.blog.security;
 
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.Iterator;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -31,10 +31,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	private JwtTokenHelper jwtTokenHelper;
 
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-			throws ServletException, IOException {
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-//		1. get token 
+//		1. get token
 
 		String requestToken = request.getHeader("Authorization");
 		Enumeration<String> headerNames = request.getHeaderNames();
@@ -94,8 +93,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 			System.out.println("username is null or context is not null");
 		}
 
-		
-		filterChain.doFilter(request, response);
-	}
 
+		filterChain. doFilter(request, response);
+	}
 }
